@@ -1,43 +1,16 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
   "name": "OpsBeacon",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#6C47FF",
     "light": "#A78BFA",
-    "dark": "#4F35CC",
-    "anchors": {
-      "from": "#6C47FF",
-      "to": "#A78BFA"
-    }
+    "dark": "#4F35CC"
   },
-  "topbarLinks": [
-    {
-      "name": "opsbeacon.co",
-      "url": "https://opsbeacon.co"
-    }
-  ],
   "topbarCtaButton": {
     "name": "Add to Slack",
     "url": "https://opsbeacon.co/#install"
   },
-  "tabs": [],
-  "anchors": [
-    {
-      "name": "Website",
-      "icon": "globe",
-      "url": "https://opsbeacon.co"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://opsbeacon.co/slack"
-    }
-  ],
   "navigation": [
     {
       "group": "Getting Started",
