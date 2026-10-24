@@ -1,0 +1,32 @@
+---
+title: Data Storage & Retention
+description: How long OpsBeacon retains your data and how to request deletion.
+---
+
+## Retention periods
+
+| Data type | Retention period |
+|-----------|-----------------|
+| Cost summaries and trend data | 24 months |
+| Security finding history | 24 months |
+| Score history | 24 months |
+| Slack message content | Not stored |
+| Raw AWS API responses | Not stored (processed in memory) |
+
+## Data location
+
+OpsBeacon stores customer data in AWS us-east-1. Data does not leave AWS infrastructure.
+
+## Data deletion
+
+To request deletion of your workspace data:
+
+1. Remove the OpsBeacon Slack app from your workspace
+2. Delete the OpsBeacon IAM role from your AWS account
+3. Email support@opsbeacon.co to request full data deletion
+
+Data deletion is completed within 30 days of a verified request.
+
+## Data isolation
+
+Each OpsBeacon customer's data is stored in isolated database partitions. No customer data is accessible to other customers or shared in aggregate analytics.

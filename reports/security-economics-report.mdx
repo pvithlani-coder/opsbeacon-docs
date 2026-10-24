@@ -1,0 +1,50 @@
+---
+title: Security Economics Report
+description: Security findings translated into dollar risk, ranked by financial exposure.
+---
+
+## What it covers
+
+The Security Economics Report translates every open security finding into a monthly dollar cost — the financial exposure of leaving it unresolved. Findings are ranked by cost so you work on what matters most financially.
+
+## How to trigger it
+
+```
+@Beacon run the security economics report
+@Beacon show me security findings in dollar terms
+```
+
+## Sample output
+
+```
+Security Economics Report
+━━━━━━━━━━━━━━━━━━━━━━━━
+
+Security Trade-off Score: 62/100
+
+4 Open Security Gaps  |  Total Exposure: $67.30/mo
+
+  finding-01  GuardDuty not enabled (us-east-1)
+              Exposure: $31.00/mo  |  Fix: $12.00  |  Effort: Low
+              → Enable GuardDuty for ML-based threat detection
+
+  finding-02  Public S3 bucket with sensitive data
+              Exposure: $18.50/mo  |  Fix: $8.00   |  Effort: Low
+              → Restrict bucket ACL and enable Block Public Access
+
+  finding-03  Root account has no MFA
+              Exposure: $11.80/mo  |  Fix: $2.00   |  Effort: Low
+              → Enable MFA on root account
+
+  finding-04  Unencrypted EBS volumes
+              Exposure: $6.00/mo   |  Fix: $25.00  |  Effort: Medium
+              → Enable EBS default encryption
+
+Beacon Assessment:
+  3 of 4 findings have fix cost < $15. Resolving findings 01–03
+  costs ~$22 and eliminates $61.30/mo in exposure — a 2.8× return
+  in the first month.
+
+To investigate: reply `review finding-01`
+To assign: reply `assign finding-01 to @teammate`
+```

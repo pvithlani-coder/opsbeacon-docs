@@ -1,0 +1,27 @@
+---
+title: Security Architecture
+description: How OpsBeacon is built and secured.
+---
+
+## Infrastructure
+
+OpsBeacon runs on AWS. All components are hosted in AWS us-east-1 with the following controls:
+
+- All data encrypted at rest (AES-256)
+- All data encrypted in transit (TLS 1.2+)
+- No long-lived credentials stored — AWS access uses short-lived STS tokens via cross-account role assumption
+- Slack tokens stored encrypted at rest
+
+## Access controls
+
+- OpsBeacon engineering staff access to production systems is logged and requires multi-factor authentication
+- Customer data is not accessible by OpsBeacon staff except for support requests with customer consent
+- No OpsBeacon employee can view your AWS cost data or security findings without an explicit support escalation
+
+## Vulnerability management
+
+OpsBeacon conducts regular security reviews and dependency audits. Critical vulnerabilities in dependencies are patched within 72 hours.
+
+## Incident response
+
+In the event of a security incident affecting customer data, OpsBeacon will notify affected customers within 72 hours of discovery, consistent with applicable regulations.

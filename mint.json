@@ -1,0 +1,163 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "OpsBeacon",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#6C47FF",
+    "light": "#A78BFA",
+    "dark": "#4F35CC",
+    "anchors": {
+      "from": "#6C47FF",
+      "to": "#A78BFA"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "opsbeacon.co",
+      "url": "https://opsbeacon.co"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Add to Slack",
+    "url": "https://opsbeacon.co/#install"
+  },
+  "tabs": [],
+  "anchors": [
+    {
+      "name": "Website",
+      "icon": "globe",
+      "url": "https://opsbeacon.co"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://opsbeacon.co/slack"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "getting-started/what-is-opsbeacon",
+        "getting-started/how-it-works",
+        "getting-started/install-slack-teams",
+        "getting-started/connect-aws",
+        "getting-started/first-10-minutes"
+      ]
+    },
+    {
+      "group": "Cost Intelligence",
+      "pages": [
+        "cost-intelligence/cloud-spend-analysis",
+        "cost-intelligence/anomaly-detection",
+        "cost-intelligence/cost-drivers-root-cause",
+        "cost-intelligence/forecasting-budgets",
+        "cost-intelligence/savings-recommendations",
+        "cost-intelligence/reservations-commitments"
+      ]
+    },
+    {
+      "group": "AI Economics",
+      "pages": [
+        "ai-economics/spend-by-project-model",
+        "ai-economics/token-usage-unit-economics",
+        "ai-economics/efficiency-scores",
+        "ai-economics/waste-optimization",
+        "ai-economics/return-on-investment"
+      ]
+    },
+    {
+      "group": "Security Economics",
+      "pages": [
+        "security-economics/trade-off-score",
+        "security-economics/gaps-risk-prioritization",
+        "security-economics/investment-exposure",
+        "security-economics/remediation-cost-analysis",
+        "security-economics/actions-verification"
+      ]
+    },
+    {
+      "group": "FinOps Scoring & Performance",
+      "pages": [
+        "finops-scoring/health-score",
+        "finops-scoring/score-dimensions",
+        "finops-scoring/score-changes-trends",
+        "finops-scoring/improving-your-score",
+        "finops-scoring/score-improvement-simulator"
+      ]
+    },
+    {
+      "group": "Reports & Executive Intelligence",
+      "pages": [
+        "reports/cloud-economics-monthly",
+        "reports/savings-action-report",
+        "reports/executive-brief",
+        "reports/finops-scorecard",
+        "reports/ai-economics-report",
+        "reports/security-economics-report",
+        "reports/scheduled-reports"
+      ]
+    },
+    {
+      "group": "Actions & Automation",
+      "pages": [
+        "actions/findings-vs-actions",
+        "actions/reviewing-assigning",
+        "actions/statuses-ownership",
+        "actions/tracking-savings",
+        "actions/verification",
+        "actions/automated-remediation"
+      ]
+    },
+    {
+      "group": "Working with Beacon",
+      "pages": [
+        "working-with-beacon/natural-language",
+        "working-with-beacon/commands-examples",
+        "working-with-beacon/investigating-finding",
+        "working-with-beacon/follow-up-questions",
+        "working-with-beacon/notifications-alerts",
+        "working-with-beacon/scheduled-standups"
+      ]
+    },
+    {
+      "group": "Integrations & Administration",
+      "pages": [
+        "integrations/aws",
+        "integrations/slack-teams",
+        "integrations/permissions-roles",
+        "integrations/workspaces-settings",
+        "integrations/supported-data-sources"
+      ]
+    },
+    {
+      "group": "Security, Privacy & Trust",
+      "pages": [
+        "security-privacy/iam-permissions",
+        "security-privacy/data-access",
+        "security-privacy/data-storage-retention",
+        "security-privacy/security-architecture",
+        "security-privacy/privacy-access-controls"
+      ]
+    },
+    {
+      "group": "Help & Reference",
+      "pages": [
+        "reference/command-reference",
+        "reference/faq",
+        "reference/troubleshooting",
+        "reference/known-limitations",
+        "reference/release-notes",
+        "reference/pricing-plans"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "linkedin": "https://linkedin.com/company/opsbeacon",
+    "website": "https://opsbeacon.co"
+  }
+}

@@ -1,0 +1,33 @@
+---
+title: Savings Recommendations
+description: Find out what AWS Trusted Advisor recommends for your account — and what each recommendation is worth.
+---
+
+## What it shows
+
+Beacon pulls savings recommendations from AWS Trusted Advisor and presents them ranked by estimated monthly savings. Each recommendation includes the affected resource, the issue, and the action required.
+
+## How to use it
+
+```
+@Beacon what are my top savings opportunities?
+@Beacon show me Trusted Advisor recommendations
+@Beacon how much could I save on EC2?
+```
+
+## Common recommendation types
+
+- **Idle EC2 instances** — running instances with very low CPU utilization
+- **Underutilized EBS volumes** — provisioned storage with no recent read/write activity
+- **Unassociated Elastic IP addresses** — EIPs not attached to a running instance
+- **Low utilization RDS instances** — database instances with minimal connections
+- **Reserved Instance optimization** — on-demand usage that could be covered by RIs or Savings Plans
+
+## Tracking a recommendation to completion
+
+```
+@Beacon assign finding-03 to @alice
+@Beacon mark finding-03 as resolved
+```
+
+See [Actions & Automation](/actions/findings-vs-actions) for the full workflow.

@@ -1,0 +1,35 @@
+---
+title: Cost Anomaly Detection
+description: Beacon monitors your AWS spend continuously and alerts you when something unusual happens.
+---
+
+## How it works
+
+OpsBeacon compares your current spend patterns against your historical baseline. When a service, account, or tag group spends significantly more than expected, Beacon flags it as an anomaly and posts an alert to your Slack channel.
+
+## What triggers an alert
+
+- A service spend that is more than 2x its 7-day average
+- A new service appearing in your bill that wasn't there before
+- A single-day cost spike exceeding a configurable threshold
+- Month-to-date spend on track to exceed your budget
+
+## Asking about anomalies
+
+```
+@Beacon any cost anomalies this week?
+@Beacon what caused the spike yesterday?
+@Beacon is there anything unusual in my bill?
+```
+
+## Automatic alerts
+
+Beacon can post anomaly alerts automatically as they're detected. To enable:
+
+```
+@Beacon alert me in this channel when there's a cost spike
+```
+
+## Root cause analysis
+
+When Beacon flags an anomaly, it includes a root cause breakdown — which specific resources, regions, or usage types drove the change. See [Cost Drivers & Root Cause Analysis](/cost-intelligence/cost-drivers-root-cause) for more detail.

@@ -1,0 +1,47 @@
+---
+title: AWS Integration
+description: How OpsBeacon connects to AWS and what it reads from each service.
+---
+
+## Connection method
+
+OpsBeacon connects to your AWS account via a **cross-account IAM role** with read-only permissions. There are no access keys or long-lived credentials. See [Connect Your AWS Account](/getting-started/connect-aws) for setup instructions.
+
+## AWS services used
+
+### AWS Cost Explorer
+Used for all cost analysis, anomaly detection, and forecasting. Requires `ce:*` read permissions.
+
+**Data OpsBeacon reads:**
+- Daily and monthly spend by service, region, account, and usage type
+- Cost forecasts
+- Reserved Instance and Savings Plan utilization and coverage
+
+### AWS Trusted Advisor
+Used for savings recommendations and cost optimization findings.
+
+**Requirements:** Business, Enterprise On-Ramp, or Enterprise support plan. Trusted Advisor check results are not available on Developer or Basic support plans.
+
+**Data OpsBeacon reads:**
+- Cost optimization checks (idle resources, underutilized instances, etc.)
+- Security checks (exposed access keys, unrestricted ports, etc.)
+
+### AWS GuardDuty
+Used for the Security Economics Report threat detection findings.
+
+**Requirements:** GuardDuty must be enabled in the regions you want analyzed. If GuardDuty is not enabled, OpsBeacon will flag this as a finding.
+
+**Data OpsBeacon reads:**
+- Active findings with severity, type, and resource details
+
+### AWS Security Hub
+Used for aggregated security findings across your environment.
+
+**Requirements:** Security Hub must be enabled. If Security Hub is not enabled, OpsBeacon will flag this as a finding.
+
+**Data OpsBeacon reads:**
+- Active findings from all connected Security Hub integrations
+
+## Multi-account setups
+
+For organizations using AWS Organizations or multiple accounts, contact support for guidance on connecting multiple accounts. Each account requires its own IAM role.

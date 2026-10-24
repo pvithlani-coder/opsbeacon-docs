@@ -1,0 +1,40 @@
+---
+title: Automated Remediation & Approvals
+description: Allow Beacon to apply fixes automatically with your approval.
+sidebarTitle: Automated Remediation
+---
+
+<Note>
+Automated remediation is available for select finding types. OpsBeacon never makes changes to your AWS account without explicit approval.
+</Note>
+
+## How it works
+
+For supported finding types, Beacon can generate and apply the remediation — with your approval. The flow:
+
+1. Beacon detects a finding and proposes a fix
+2. You review the proposed change in Slack
+3. You approve or reject
+4. If approved, Beacon applies the change via your AWS account
+
+## Supported finding types
+
+- Enabling GuardDuty in uncovered regions
+- Enabling Security Hub
+- Blocking public access on misconfigured S3 buckets (with confirmation)
+- Enabling EBS default encryption
+
+## Approval flow
+
+```
+Beacon: finding-01 can be auto-remediated.
+        Proposed change: Enable GuardDuty in us-east-1
+        This will cost approximately $3/month.
+        Reply `approve finding-01` to apply, or `reject finding-01` to skip.
+
+@Beacon approve finding-01
+```
+
+## What automated remediation requires
+
+Automated remediation requires an additional IAM role with write permissions for the specific services it can modify. This is separate from the read-only role used for analysis. See [AWS IAM Permissions](/security-privacy/iam-permissions) for the required policy.

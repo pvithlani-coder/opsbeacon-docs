@@ -1,0 +1,37 @@
+---
+title: Investigating a Finding
+description: How to dig into a specific finding and understand it fully before acting.
+---
+
+## Start with the review command
+
+```
+@Beacon review finding-01
+```
+
+This returns the full finding detail: what it is, what resource is affected, the financial exposure, the recommended fix, and estimated effort.
+
+## Ask follow-up questions
+
+After reviewing, you can ask Beacon for more context:
+
+```
+@Beacon why is finding-01 a security risk?
+@Beacon what's the worst case if we don't fix finding-01?
+@Beacon how hard is it to fix finding-01?
+@Beacon is finding-01 related to finding-03?
+```
+
+## Check the history
+
+```
+@Beacon when was finding-01 first detected?
+@Beacon has this finding appeared before?
+```
+
+## Compare findings
+
+```
+@Beacon which finding should I fix first — 01 or 02?
+@Beacon show me all findings with effort: low
+```

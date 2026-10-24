@@ -1,0 +1,31 @@
+---
+title: Action Statuses & Ownership
+description: Track the lifecycle of every finding from discovery to verified resolution.
+---
+
+## Status lifecycle
+
+| Status | Meaning |
+|--------|---------|
+| **Open** | Detected, not yet assigned |
+| **Assigned** | Owned by a team member, fix in progress |
+| **Resolved** | Fix applied, pending verification |
+| **Verified** | Fix confirmed — finding no longer appears in scans |
+| **Acknowledged** | Risk accepted, finding will not be actioned |
+| **Deferred** | Fix planned for a future date |
+
+## Checking status
+
+```
+@Beacon what's the status of finding-01?
+@Beacon show me all open findings
+@Beacon what findings does @alice own?
+```
+
+## Updating status
+
+```
+@Beacon mark finding-01 as resolved
+@Beacon defer finding-03 to next sprint
+@Beacon acknowledge finding-04
+```

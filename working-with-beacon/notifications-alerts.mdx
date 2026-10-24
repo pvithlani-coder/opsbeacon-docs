@@ -1,0 +1,41 @@
+---
+title: Notifications & Alerts
+description: Configure Beacon to proactively alert you when something needs attention.
+---
+
+## Types of alerts
+
+**Cost alerts**
+```
+@Beacon alert me when monthly spend exceeds $15,000
+@Beacon notify me when EC2 spend spikes more than 30% in a day
+@Beacon alert me if a new service appears in my bill
+```
+
+**Security alerts**
+```
+@Beacon alert me when a new critical security finding is detected
+@Beacon notify me if my security score drops below 60
+```
+
+**AI alerts**
+```
+@Beacon alert me when AI spend exceeds $5,000 this month
+@Beacon notify me if any AI project efficiency score drops below 50
+```
+
+## Managing alerts
+
+```
+@Beacon what alerts are configured?
+@Beacon remove the EC2 spend alert
+@Beacon change the cost alert threshold to $20,000
+```
+
+## Choosing where alerts go
+
+By default, alerts go to the channel where you configured them. To send to a different channel:
+
+```
+@Beacon send cost alerts to #finops-alerts
+```

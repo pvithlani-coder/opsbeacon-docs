@@ -1,0 +1,35 @@
+---
+title: AI Spend by Project and Model
+description: See exactly which projects and AI models are driving your token costs.
+---
+
+## What it shows
+
+The AI Economics Report breaks down your AI API spend by project and by model. You can see which teams are spending the most, which models are being used, and how cost per project has changed over time.
+
+## How to trigger it
+
+```
+@Beacon run AI economics report
+@Beacon show me AI spend by project
+@Beacon which model is costing the most this month?
+```
+
+## Output format
+
+Beacon returns:
+- **Total AI spend** for the period
+- **Spend by project** — ranked by cost with token volume and average cost per 1K tokens
+- **Spend by model** — breakdown across GPT-4, Claude, Bedrock, etc.
+- **Top spender** — the single project or team with the highest token cost
+- **Efficiency score** — how well spend is converting to useful output
+
+## Supported AI providers
+
+OpsBeacon tracks spend from:
+- AWS Bedrock (all models)
+- OpenAI (via API spend tagging)
+- Anthropic (via API spend tagging)
+- Azure OpenAI (coming soon)
+
+Spend from non-AWS providers requires tagging your API costs in AWS using Cost Allocation Tags or a cost tracking integration.

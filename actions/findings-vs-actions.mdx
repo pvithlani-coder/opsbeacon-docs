@@ -1,0 +1,34 @@
+---
+title: Understanding Findings vs. Actions
+description: Findings are what Beacon discovers. Actions are what you do about them.
+---
+
+## Findings
+
+A finding is something Beacon has identified — a cost anomaly, a security gap, a savings opportunity, an AI waste pattern. Findings are read-only; they reflect the current state of your AWS environment.
+
+Every finding has:
+- A unique ID (e.g., `finding-01`)
+- A type (cost / security / AI / savings)
+- A severity or dollar exposure
+- A status (open, assigned, resolved, verified)
+
+## Actions
+
+An action is a task you create to resolve a finding. When you assign a finding to someone, OpsBeacon creates an action and tracks it through to completion.
+
+```
+@Beacon assign finding-01 to @alice
+```
+
+This creates an action owned by Alice with a link back to `finding-01`.
+
+## The difference matters
+
+Not every finding needs an action. Some findings are informational. Some have acceptable risk. Actions are for findings you've decided to fix.
+
+```
+@Beacon acknowledge finding-04 — we accept this risk
+```
+
+Acknowledged findings are removed from the active list but remain in history.

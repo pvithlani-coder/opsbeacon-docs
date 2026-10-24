@@ -1,0 +1,30 @@
+---
+title: Slack Integration
+description: How OpsBeacon integrates with Slack and what permissions it uses.
+---
+
+## Slack permissions
+
+OpsBeacon requests the minimum permissions needed to function:
+
+| Permission | Purpose |
+|------------|---------|
+| `chat:write` | Post reports and responses to channels |
+| `app_mentions:read` | Respond to `@Beacon` mentions |
+| `channels:read` | List channels for report configuration |
+| `users:read` | Identify team members for assignment |
+| `im:write` | Send direct messages for alerts (optional) |
+
+OpsBeacon does not read message history, access private channels it hasn't been invited to, or store Slack message content.
+
+## Channel management
+
+Beacon can post to any channel it's been invited to. To invite Beacon:
+
+```
+/invite @Beacon
+```
+
+## Removing OpsBeacon from Slack
+
+Go to **Slack Settings → Manage Apps → OpsBeacon → Remove App**. This immediately revokes all Slack permissions.

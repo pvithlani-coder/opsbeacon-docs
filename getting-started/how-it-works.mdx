@@ -1,0 +1,64 @@
+---
+title: How OpsBeacon Works
+description: OpsBeacon connects to your AWS account read-only, processes your cost and security data, and surfaces analysis directly in Slack.
+---
+
+## Architecture overview
+
+OpsBeacon is a hosted service. You connect it to your AWS account via a read-only IAM role, and to your Slack workspace via the OpsBeacon Slack app. From there, Beacon runs on a schedule and on demand.
+
+```
+AWS (Cost Explorer, GuardDuty, Trusted Advisor, Security Hub)
+        ↓  read-only IAM role
+    OpsBeacon Engine
+        ↓  Slack Bot API
+    Your Slack workspace  ←→  @Beacon
+```
+
+## What OpsBeacon reads from AWS
+
+OpsBeacon uses four AWS data sources:
+
+| Source | What it provides |
+|--------|-----------------|
+| **AWS Cost Explorer** | Daily and monthly spend by service, account, tag, and region |
+| **AWS Trusted Advisor** | Cost optimization checks, underutilized resources, savings opportunities |
+| **AWS GuardDuty** | Threat detection findings |
+| **AWS Security Hub** | Aggregated security findings across your environment |
+
+OpsBeacon never writes to your AWS account and never stores raw credentials. All AWS access is through a cross-account IAM role with a minimal permission set. See [AWS IAM Permissions](/security-privacy/iam-permissions) for the full policy.
+
+## How Beacon processes data
+
+When you trigger a report or ask Beacon a question:
+
+1. Beacon pulls the relevant data from AWS via your IAM role
+2. It runs scoring models against that data (cost anomaly detection, security gap quantification, efficiency scoring)
+3. It formats the output as structured Slack messages with findings, scores, and recommended actions
+4. It stores a lightweight record of findings and scores over time so it can track trends and verify outcomes
+
+## Interaction model
+
+Beacon lives in Slack. You interact with it in two ways:
+
+**Mentions** — tag `@Beacon` in any channel with a request in plain English:
+```
+@Beacon show me the security economics report
+@Beacon what drove the cost spike yesterday?
+@Beacon what's our FinOps score this week?
+```
+
+**Scheduled reports** — configure Beacon to post reports to a channel on a schedule (daily, weekly, monthly). See [Scheduled Reports](/reports/scheduled-reports).
+
+## Data freshness
+
+- Cost data refreshes daily (AWS Cost Explorer has a ~24h lag)
+- Security findings refresh on each report trigger
+- Scores are calculated at report time based on current data
+
+## What Beacon does not do
+
+- Does not make changes to your AWS account
+- Does not store your AWS credentials or access keys
+- Does not have access to your application code, databases, or non-AWS infrastructure
+- Does not share your data across tenants

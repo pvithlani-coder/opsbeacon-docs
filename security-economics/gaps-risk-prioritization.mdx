@@ -1,0 +1,35 @@
+---
+title: Security Gaps & Risk Prioritization
+description: See all open security findings ranked by financial exposure.
+---
+
+## What it shows
+
+Beacon pulls findings from GuardDuty and Security Hub and translates each one into a monthly dollar cost — the financial exposure of leaving that gap open. Findings are ranked by cost, not by severity, so you work on what matters most financially.
+
+## How to use it
+
+```
+@Beacon show me my security gaps
+@Beacon what are the top 5 most expensive security findings?
+@Beacon run security economics report
+```
+
+## Finding format
+
+Each finding includes:
+- **Finding ID** (e.g., `finding-01`)
+- **Description** of the gap
+- **Monthly cost** — estimated financial exposure
+- **Remediation cost** — estimated fix cost
+- **Fix** — specific action to resolve it
+- **Effort** — Low / Medium / High
+
+## Investigating a specific finding
+
+```
+@Beacon review finding-01
+@Beacon tell me more about finding-02
+```
+
+Beacon will explain the finding in plain language, the specific AWS configuration involved, and the recommended fix with step-by-step guidance.

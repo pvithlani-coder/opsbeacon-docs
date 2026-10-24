@@ -1,0 +1,28 @@
+---
+title: Cost Drivers & Root Cause Analysis
+description: Find out exactly what changed in your AWS bill and why.
+---
+
+## What it shows
+
+When your AWS spend increases, Beacon traces the change down to the specific service, usage type, region, and resource level — so you know what to investigate.
+
+## How to use it
+
+```
+@Beacon what's driving my cost increase this month?
+@Beacon why did EC2 spend go up 40% last week?
+@Beacon what's the most expensive thing in my account right now?
+```
+
+## Output format
+
+Beacon returns:
+- The primary cost driver (service + usage type)
+- The change in absolute dollars and percentage
+- The region and account where the change occurred
+- Where possible, the specific resource type or operation responsible
+
+## Limitations
+
+Root cause analysis works at the service and usage-type level. Beacon cannot currently identify specific EC2 instance IDs or Lambda function names as cost drivers — that level of detail requires AWS Cost Allocation Tags or AWS Cost Anomaly Detection with resource-level tagging.

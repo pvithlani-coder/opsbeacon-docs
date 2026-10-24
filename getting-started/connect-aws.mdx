@@ -1,0 +1,103 @@
+---
+title: Connect Your AWS Account
+description: Grant OpsBeacon read-only access to your AWS account via a cross-account IAM role.
+---
+
+## How AWS access works
+
+OpsBeacon accesses your AWS data through a **cross-account IAM role** — a standard AWS pattern for granting a third-party read-only access to your account. You create the role in your account; OpsBeacon assumes it when it needs to pull data.
+
+OpsBeacon never stores AWS access keys and never has write access to your account.
+
+## Required permissions
+
+OpsBeacon needs read access to four AWS services:
+
+| Service | Permissions | Purpose |
+|---------|-------------|---------|
+| Cost Explorer | `ce:GetCostAndUsage`, `ce:GetCostForecast`, `ce:GetReservationUtilization` | Cost analysis and forecasting |
+| Trusted Advisor | `support:DescribeTrustedAdvisorChecks`, `support:DescribeTrustedAdvisorCheckResult` | Savings recommendations |
+| GuardDuty | `guardduty:ListDetectors`, `guardduty:ListFindings`, `guardduty:GetFindings` | Threat detection findings |
+| Security Hub | `securityhub:GetFindings`, `securityhub:DescribeHub` | Aggregated security findings |
+
+<Note>
+Trusted Advisor check results require an AWS account with a **Business, Enterprise On-Ramp, or Enterprise support plan**. If your account is on Developer or Basic support, Trusted Advisor data will not be available.
+</Note>
+
+## Setup steps
+
+<Steps>
+  <Step title="Open the AWS connection page">
+    After installing the Slack app, you'll land on the OpsBeacon setup page. Click **Connect AWS Account**. You'll see your unique **External ID** — keep this page open, you'll need it in step 3.
+  </Step>
+  <Step title="Go to IAM in the AWS Console">
+    In a new tab, open the [AWS IAM Console](https://console.aws.amazon.com/iam) and navigate to **Roles → Create role**.
+  </Step>
+  <Step title="Create the cross-account role">
+    1. Select **AWS account** as the trusted entity type
+    2. Select **Another AWS account**
+    3. Enter OpsBeacon's AWS Account ID: `<provided on setup page>`
+    4. Check **Require external ID** and paste your unique External ID from the OpsBeacon setup page
+    5. Click **Next**
+  </Step>
+  <Step title="Attach the permissions policy">
+    On the permissions page, click **Create inline policy** and paste the following JSON:
+
+    ```json
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "ce:GetCostAndUsage",
+            "ce:GetCostForecast",
+            "ce:GetReservationUtilization",
+            "ce:GetSavingsPlanUtilization",
+            "support:DescribeTrustedAdvisorChecks",
+            "support:DescribeTrustedAdvisorCheckResult",
+            "guardduty:ListDetectors",
+            "guardduty:ListFindings",
+            "guardduty:GetFindings",
+            "securityhub:GetFindings",
+            "securityhub:DescribeHub"
+          ],
+          "Resource": "*"
+        }
+      ]
+    }
+    ```
+
+    Name the policy `OpsBeaconReadOnly` and click **Create policy**.
+  </Step>
+  <Step title="Name and create the role">
+    Name the role `OpsBeaconRole` (or any name you prefer), review the settings, and click **Create role**.
+  </Step>
+  <Step title="Copy the Role ARN">
+    Open the newly created role and copy the **Role ARN** — it looks like:
+    ```
+    arn:aws:iam::123456789012:role/OpsBeaconRole
+    ```
+  </Step>
+  <Step title="Paste the Role ARN in OpsBeacon">
+    Return to the OpsBeacon setup page, paste the Role ARN, and click **Verify Connection**. OpsBeacon will test the role and confirm access.
+  </Step>
+</Steps>
+
+## Verify the connection
+
+Once connected, test it in Slack:
+
+```
+@Beacon what's my AWS spend this month?
+```
+
+Beacon should return a cost summary within a few seconds.
+
+## Multi-account setups
+
+If you manage multiple AWS accounts, you can connect additional accounts after the initial setup. Each account requires its own IAM role. Contact support for guidance on organization-level setups with AWS Organizations.
+
+## Revoking access
+
+To disconnect OpsBeacon from your AWS account, delete the `OpsBeaconRole` IAM role in the AWS Console. This immediately revokes all AWS access.

@@ -1,0 +1,36 @@
+---
+title: What Data OpsBeacon Accesses
+description: A clear account of exactly what data OpsBeacon reads and stores.
+---
+
+## What OpsBeacon reads from AWS
+
+| Data type | Source | Used for |
+|-----------|--------|---------|
+| Daily spend by service, region, account | Cost Explorer | Cost analysis and reporting |
+| Cost forecasts | Cost Explorer | Month-end projections |
+| RI and Savings Plan utilization | Cost Explorer | Commitment coverage reporting |
+| Trusted Advisor check results | Support API | Savings recommendations |
+| GuardDuty findings | GuardDuty | Security Economics Report |
+| Security Hub findings | Security Hub | Security Economics Report |
+
+## What OpsBeacon does NOT read
+
+- Application logs
+- CloudTrail events
+- EC2 instance contents or metadata
+- S3 bucket contents
+- Database records or application data
+- Personal information about your users or customers
+- Source code
+
+## What OpsBeacon stores
+
+OpsBeacon stores:
+- Aggregated cost summaries (not raw billing line items)
+- Finding IDs, descriptions, and scores (not full finding payloads)
+- Your workspace configuration and scheduled report settings
+- Finding assignment and resolution history
+- Historical score data
+
+Raw AWS data is processed in memory and not persisted beyond what's needed to generate the report.

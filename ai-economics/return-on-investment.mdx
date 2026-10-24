@@ -1,0 +1,31 @@
+---
+title: AI Return on Investment
+description: Measure whether your AI spend is delivering business value.
+---
+
+## What it shows
+
+AI ROI analysis compares your AI token spend against measurable outcomes — task completion rates, throughput, error rates, and time saved — where that data is available.
+
+```
+@Beacon show me AI ROI for Q3
+@Beacon is the summarization project worth what we're spending on it?
+```
+
+## How ROI is calculated
+
+ROI requires a baseline — what the work cost before AI, and what it costs now. OpsBeacon uses:
+
+1. **Token spend** as the cost input
+2. **Task volume** and **completion rate** as the output metrics
+3. **Estimated time savings** based on task type benchmarks
+
+For a more precise ROI calculation, you can provide your own baseline figures:
+
+```
+@Beacon set baseline for data-extraction project: 2 hours manual work per 100 records
+```
+
+## Limitations
+
+AI ROI is directional, not precise. OpsBeacon doesn't have access to your application code or user behavior data. The analysis is based on token-level signals and your configured baselines.

@@ -1,0 +1,34 @@
+---
+title: FinOps Health Score
+description: A single number that reflects how well your cloud spend is managed across cost, AI, and security.
+---
+
+## What the score measures
+
+Your FinOps Health Score (0–100) is a composite score across three dimensions:
+
+| Dimension | Weight | What it measures |
+|-----------|--------|-----------------|
+| Cost Optimization | 40% | How well your spend is optimized — idle resources, RI coverage, savings plan utilization |
+| AI Economics | 30% | How efficiently your AI workloads use tokens relative to output produced |
+| Security Investment | 30% | How aligned your security spending is with your actual risk exposure |
+
+## How to get your score
+
+```
+@Beacon what's my FinOps score?
+@Beacon run the FinOps health check
+```
+
+## Score benchmarks
+
+OpsBeacon benchmarks your score against anonymized data from similar-sized AWS accounts in your industry. Beacon will tell you whether your score is above or below the benchmark for your peer group.
+
+## Improving your score
+
+Each dimension has specific improvement levers. The fastest wins are usually:
+- Resolving high-exposure, low-effort security findings (Security Investment dimension)
+- Enabling prompt caching for high-volume AI workloads (AI Economics dimension)
+- Rightsizing idle EC2 instances flagged by Trusted Advisor (Cost Optimization dimension)
+
+See [Improving Your Score](/finops-scoring/improving-your-score) for a detailed guide.

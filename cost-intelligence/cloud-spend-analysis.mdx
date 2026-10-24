@@ -1,0 +1,36 @@
+---
+title: Cloud Spend Analysis
+description: Understand where your AWS money is going — by service, account, region, and tag.
+---
+
+## What it shows
+
+Cloud Spend Analysis gives you a structured breakdown of your AWS spend over any time period. Ask Beacon for a summary and it returns spend by service, top cost movers, month-over-month change, and projected end-of-month total.
+
+## How to use it
+
+```
+@Beacon what's my AWS spend this month?
+@Beacon show me spend by service for last week
+@Beacon which AWS accounts are driving the most cost?
+@Beacon break down my EC2 costs by region
+```
+
+## Output format
+
+Beacon returns:
+- **Total spend** for the period with % change vs prior period
+- **Top services** ranked by cost with absolute and relative spend
+- **Notable changes** — services where spend moved significantly
+- **Projected month-end** based on current run rate
+
+## Filtering by tag
+
+If your AWS resources are tagged (e.g., by team, environment, or project), you can ask Beacon to filter by tag:
+
+```
+@Beacon show me spend tagged env:production
+@Beacon what's the cost for the data-platform team this month?
+```
+
+Tag-based filtering requires tags to be activated in AWS Cost Explorer. See [AWS Integration](/integrations/aws) for setup.

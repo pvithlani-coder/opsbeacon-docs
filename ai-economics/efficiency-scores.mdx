@@ -1,0 +1,28 @@
+---
+title: AI Efficiency Scores
+description: A scored view of how efficiently each project converts token spend into useful output.
+---
+
+## What the efficiency score measures
+
+Each AI project gets a score from 0–100 reflecting how efficiently it uses tokens. The score factors in:
+
+- Token waste from repeated or failed requests
+- Prompt-to-completion ratio vs benchmarks
+- Cost per unit of output vs similar workloads
+- Cache hit rate (for providers that support prompt caching)
+
+## How to use it
+
+```
+@Beacon what's the AI efficiency score for the data-extraction project?
+@Beacon show me efficiency scores for all AI projects
+@Beacon which AI project has the most room to improve?
+```
+
+## Improving a low score
+
+A low efficiency score usually points to one of three root causes:
+1. **Prompt bloat** — prompts that are longer than they need to be
+2. **High retry rates** — requests failing and being retried at full cost
+3. **No caching** — identical or near-identical prompts being sent repeatedly without prompt caching

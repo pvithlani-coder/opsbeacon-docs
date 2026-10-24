@@ -1,0 +1,71 @@
+---
+title: Install OpsBeacon in Slack
+description: Add Beacon to your Slack workspace in under five minutes.
+---
+
+## Prerequisites
+
+- Slack workspace admin access (required to install apps)
+- An OpsBeacon account — [sign up at opsbeacon.co](https://opsbeacon.co)
+
+## Install steps
+
+<Steps>
+  <Step title="Go to the install page">
+    Visit [opsbeacon.co](https://opsbeacon.co) and click **Add to Slack**. You'll be redirected to Slack's OAuth flow.
+  </Step>
+  <Step title="Authorize the app">
+    Review the permissions OpsBeacon requests and click **Allow**. You'll be redirected back to the OpsBeacon setup page.
+
+    OpsBeacon requests the following Slack permissions:
+    - `chat:write` — post messages to channels
+    - `app_mentions:read` — respond when tagged with `@Beacon`
+    - `channels:read` — list channels so you can choose where reports post
+    - `users:read` — identify who is asking questions
+  </Step>
+  <Step title="Choose your reporting channel">
+    Select the Slack channel where you want Beacon to post reports. Most teams use a dedicated `#cloud-costs` or `#finops` channel. You can change this later.
+  </Step>
+  <Step title="Invite Beacon to the channel">
+    In your chosen Slack channel, type:
+    ```
+    /invite @Beacon
+    ```
+    This allows Beacon to post there.
+  </Step>
+  <Step title="Connect your AWS account">
+    You'll be prompted to connect your AWS account. See [Connect Your AWS Account](/getting-started/connect-aws) for step-by-step instructions.
+  </Step>
+</Steps>
+
+## Verify the installation
+
+Once installed, run a quick test in Slack:
+
+```
+@Beacon hello
+```
+
+Beacon should respond with a confirmation message and your workspace status.
+
+## Adding Beacon to additional channels
+
+You can invite Beacon to as many channels as you like:
+
+```
+/invite @Beacon
+```
+
+Beacon will respond to `@Beacon` mentions in any channel it's been invited to.
+
+## Changing the reporting channel
+
+To update where scheduled reports are posted, mention Beacon in the new channel:
+
+```
+@Beacon post reports here
+```
+
+## Removing OpsBeacon
+
+To remove OpsBeacon from your Slack workspace, go to **Slack Settings → Manage Apps → OpsBeacon → Remove App**. This revokes all Slack permissions. Your AWS connection remains active until you also remove the IAM role from your AWS account.

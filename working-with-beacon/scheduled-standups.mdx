@@ -1,0 +1,31 @@
+---
+title: Scheduled Standups
+description: Set up Beacon to run an automatic FinOps standup in your Slack channel.
+---
+
+## What a standup looks like
+
+A Beacon standup is a short, structured summary posted automatically at a configured time. It covers:
+
+- Yesterday's cost vs prior day
+- Any new anomalies or findings detected
+- Open actions and who owns them
+- FinOps score (weekly, not daily)
+
+## Setting up a standup
+
+```
+@Beacon run a FinOps standup here every weekday at 9am
+```
+
+## Customizing the standup
+
+```
+@Beacon run a standup here every Monday — include the security score and top 3 open findings
+@Beacon add AI spend to the daily standup
+@Beacon remove the FinOps score from the daily standup — just cost and anomalies
+```
+
+## Who gets notified
+
+Standups post to the channel. Finding owners are @mentioned when they have open actions.

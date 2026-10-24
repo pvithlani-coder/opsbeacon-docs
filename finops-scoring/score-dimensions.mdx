@@ -1,0 +1,31 @@
+---
+title: Understanding Score Dimensions
+description: A detailed breakdown of what drives each component of the FinOps Health Score.
+---
+
+## Cost Optimization (40%)
+
+This dimension scores how well your spend is aligned with actual usage. Factors include:
+
+- **RI/Savings Plan coverage** — what percentage of eligible spend is covered by commitments
+- **Idle resource rate** — percentage of provisioned resources with near-zero utilization
+- **Waste ratio** — spend on resources flagged by Trusted Advisor as underutilized
+- **Tagging coverage** — percentage of resources with cost allocation tags
+
+## AI Economics (30%)
+
+This dimension scores the efficiency of your AI workloads. Factors include:
+
+- **Token efficiency** — useful output per token spent, benchmarked against task type
+- **Cache utilization** — whether prompt caching is enabled for repeat workloads
+- **Model-task alignment** — whether workloads are using the right model tier for the task
+- **Error rate** — percentage of API calls that fail and incur cost without producing output
+
+## Security Investment (30%)
+
+This dimension scores how well your security spending matches your risk profile. Factors include:
+
+- **Exposure vs investment ratio** — monthly dollar exposure from open findings vs security service spend
+- **Time-to-remediation** — how long high-severity findings stay open
+- **Finding resolution rate** — percentage of flagged findings resolved within 30 days
+- **Security service coverage** — whether GuardDuty and Security Hub are enabled

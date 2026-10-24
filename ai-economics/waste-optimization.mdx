@@ -1,0 +1,26 @@
+---
+title: AI Waste & Optimization
+description: Find and eliminate token spend that isn't producing useful output.
+---
+
+## What counts as AI waste
+
+OpsBeacon flags AI spend as waste when it identifies:
+
+- **Failed requests** — API calls that errored out but still incurred token costs
+- **Duplicate requests** — identical prompts sent multiple times without caching
+- **Oversized prompts** — prompts significantly longer than needed for the task
+- **Unused completions** — completions generated but never used by the application
+- **Over-provisioned models** — using GPT-4 or Claude Opus for tasks a smaller model handles equally well
+
+## How to surface waste
+
+```
+@Beacon where is AI spend being wasted?
+@Beacon show me waste analysis for the AI projects
+@Beacon what would I save if I switched the classification project to a smaller model?
+```
+
+## Optimization recommendations
+
+For each waste pattern identified, Beacon provides a specific recommendation and an estimated monthly savings if the fix is applied.

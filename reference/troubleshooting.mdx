@@ -1,0 +1,44 @@
+---
+title: Troubleshooting
+---
+
+## Beacon isn't responding to @mentions
+
+1. Make sure Beacon has been invited to the channel: `/invite @Beacon`
+2. Check that the OpsBeacon Slack app is still installed: **Slack Settings → Manage Apps**
+3. Try a simple test: `@Beacon hello`
+
+If Beacon still doesn't respond, contact support@opsbeacon.co.
+
+## "AWS connection failed" error
+
+1. Verify the IAM role still exists in your AWS account
+2. Check that the External ID in the trust policy matches the one on your OpsBeacon settings page
+3. Confirm the role has the required permissions (see [AWS IAM Permissions](/security-privacy/iam-permissions))
+
+Run a connection test:
+```
+@Beacon test AWS connection
+```
+
+## Cost data shows $0 or seems wrong
+
+- AWS Cost Explorer data has a ~24h delay. Check if the period you're asking about is within the last 24 hours.
+- Confirm Cost Explorer is enabled in your AWS account (it requires a one-time activation in the AWS Console)
+
+## Trusted Advisor recommendations not showing
+
+This requires a Business, Enterprise On-Ramp, or Enterprise AWS support plan. On Developer or Basic plans, Trusted Advisor check details are not accessible via API.
+
+## GuardDuty findings not appearing
+
+1. Confirm GuardDuty is enabled in the regions you care about
+2. If no findings appear after enabling GuardDuty, it may simply mean no threats have been detected — this is expected behavior
+
+## Security Hub findings not appearing
+
+Confirm Security Hub is enabled and has at least one security standard enabled (e.g., AWS Foundational Security Best Practices).
+
+## Contact support
+
+For anything not covered here: support@opsbeacon.co or mention `@Beacon help` in Slack.

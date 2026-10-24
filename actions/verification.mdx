@@ -1,0 +1,31 @@
+---
+title: Verification of Outcomes
+description: How OpsBeacon confirms that a fix actually worked.
+---
+
+## How verification works
+
+When you mark a finding as resolved, Beacon schedules a verification check. On the next scan:
+
+1. Beacon re-runs the relevant check against your AWS account
+2. If the finding no longer appears, it's marked **Verified**
+3. The financial exposure is removed from your active total
+4. The actual cost reduction (if measurable) is recorded as verified savings
+
+## Manual verification trigger
+
+```
+@Beacon verify finding-01 now
+```
+
+Forces an immediate re-check rather than waiting for the next scheduled scan.
+
+## What if verification fails?
+
+If the finding reappears after being marked resolved:
+
+```
+Finding-01 re-opened: GuardDuty still disabled in us-east-1
+```
+
+Beacon re-opens the finding, notifies the owner, and restores the exposure to your total.

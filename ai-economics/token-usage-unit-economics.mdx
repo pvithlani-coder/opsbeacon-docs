@@ -1,0 +1,25 @@
+---
+title: Token Usage & Unit Economics
+description: Understand the cost per unit of useful work your AI workloads are producing.
+---
+
+## Unit economics for AI
+
+Raw token spend is hard to act on. Unit economics — cost per API call, cost per successful completion, cost per user request — give you a number you can improve.
+
+OpsBeacon calculates unit economics for each AI project where usage data is available.
+
+## How to use it
+
+```
+@Beacon what's the cost per API call for the summarization project?
+@Beacon show me unit economics for all AI projects
+@Beacon which project has the worst cost per completion?
+```
+
+## Key metrics
+
+- **Cost per 1K tokens** — blended input + output token cost
+- **Cost per API call** — average spend per request
+- **Input/output ratio** — prompt tokens vs completion tokens (high input ratios often indicate prompt inefficiency)
+- **Average completion length** — longer completions cost more; are they justified?

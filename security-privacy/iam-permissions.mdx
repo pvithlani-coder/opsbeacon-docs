@@ -1,0 +1,72 @@
+---
+title: AWS IAM Permissions
+description: The exact IAM policy OpsBeacon uses to access your AWS account.
+---
+
+## Read-only policy
+
+OpsBeacon uses a cross-account IAM role with the following minimum permissions:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OpsBeaconCostAccess",
+      "Effect": "Allow",
+      "Action": [
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast",
+        "ce:GetReservationUtilization",
+        "ce:GetSavingsPlanUtilization",
+        "ce:GetReservationCoverage",
+        "ce:GetSavingsPlansCoverage"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "OpsBeaconTrustedAdvisorAccess",
+      "Effect": "Allow",
+      "Action": [
+        "support:DescribeTrustedAdvisorChecks",
+        "support:DescribeTrustedAdvisorCheckResult",
+        "support:DescribeTrustedAdvisorCheckSummaries"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "OpsBeaconGuardDutyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "guardduty:ListDetectors",
+        "guardduty:ListFindings",
+        "guardduty:GetFindings",
+        "guardduty:GetDetector"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "OpsBeaconSecurityHubAccess",
+      "Effect": "Allow",
+      "Action": [
+        "securityhub:GetFindings",
+        "securityhub:DescribeHub",
+        "securityhub:ListEnabledProductsForImport"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+## What this policy does NOT allow
+
+- No write access to any AWS service
+- No access to EC2, RDS, S3, Lambda, or any compute/storage services
+- No access to IAM (cannot read or modify users, roles, or policies)
+- No access to CloudTrail, CloudWatch logs, or application logs
+- No access to AWS Organizations
+
+## External ID
+
+The trust policy for the OpsBeacon role includes your unique External ID, which prevents confused deputy attacks. OpsBeacon cannot assume your role without the correct External ID.

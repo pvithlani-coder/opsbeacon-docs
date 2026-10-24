@@ -1,0 +1,83 @@
+---
+title: Your First 10 Minutes with Beacon
+description: Get your first insights from OpsBeacon in under 10 minutes.
+---
+
+Once your Slack app is installed and your AWS account is connected, here's the fastest path to useful output.
+
+## Minute 1 — Check your cost summary
+
+```
+@Beacon what's my AWS spend this month?
+```
+
+Beacon will return your month-to-date spend, how it compares to last month, and the top 3 services by cost.
+
+## Minute 2 — Run the Security Economics Report
+
+```
+@Beacon run security economics report
+```
+
+This is usually the highest-impact starting point. Beacon will pull your GuardDuty and Security Hub findings, translate each one into a monthly dollar cost, and rank them by financial exposure. Most teams find at least one finding they didn't know was costing them money.
+
+## Minute 3 — Run the AI Economics Report
+
+If your team is using any AI APIs (OpenAI, Anthropic, AWS Bedrock):
+
+```
+@Beacon run AI economics report
+```
+
+Beacon will break down token spend by project and model, score efficiency, and flag any waste patterns.
+
+## Minute 5 — Check your FinOps Health Score
+
+```
+@Beacon what's my FinOps score?
+```
+
+Your FinOps Health Score is a single number (0–100) that reflects how well your cloud spend is managed across cost optimization, AI efficiency, and security investment. Beacon will explain what's driving the score and what would move it.
+
+## Minute 7 — Dig into a finding
+
+If the Security Economics Report flagged something, investigate it:
+
+```
+@Beacon tell me more about finding-01
+```
+
+or
+
+```
+@Beacon review finding-01
+```
+
+Beacon will explain the finding, the risk, the monthly cost of leaving it unresolved, and the estimated effort to fix it.
+
+## Minute 10 — Set up a weekly report
+
+```
+@Beacon post the cost summary here every Monday at 9am
+```
+
+Beacon will confirm the schedule and start posting automatically.
+
+---
+
+## What to try next
+
+<CardGroup cols={2}>
+  <Card title="Cost Anomaly Detection" icon="chart-line" href="/cost-intelligence/anomaly-detection">
+    See if Beacon has flagged any unusual spend patterns
+  </Card>
+  <Card title="Savings Recommendations" icon="piggy-bank" href="/cost-intelligence/savings-recommendations">
+    Find out what Trusted Advisor is recommending for your account
+  </Card>
+  <Card title="Commands Reference" icon="terminal" href="/reference/command-reference">
+    Full list of things you can ask Beacon
+  </Card>
+  <Card title="Actions & Findings" icon="list-check" href="/actions/findings-vs-actions">
+    Understand how to assign and track findings across your team
+  </Card>
+</CardGroup>

@@ -1,0 +1,38 @@
+---
+title: Frequently Asked Questions
+sidebarTitle: FAQ
+---
+
+<AccordionGroup>
+  <Accordion title="Does OpsBeacon have write access to my AWS account?">
+    No. OpsBeacon uses a read-only IAM role. It cannot create, modify, or delete any AWS resources. The only exception is optional automated remediation, which requires a separate role with limited write permissions and always requires your explicit approval before applying any change.
+  </Accordion>
+
+  <Accordion title="What AWS support plan do I need?">
+    For full functionality including Trusted Advisor check results, you need a **Business, Enterprise On-Ramp, or Enterprise** AWS support plan. Cost Explorer, GuardDuty, and Security Hub work on all support plans. If you're on Developer or Basic support, savings recommendations from Trusted Advisor will not be available.
+  </Accordion>
+
+  <Accordion title="How current is the cost data?">
+    AWS Cost Explorer has an inherent delay of approximately 24 hours. This means OpsBeacon's cost analysis reflects spend up to yesterday. Security findings from GuardDuty and Security Hub are pulled live at report time.
+  </Accordion>
+
+  <Accordion title="Can I connect multiple AWS accounts?">
+    Yes. Each account requires its own IAM role. Contact support for guidance on multi-account setups, especially if you're using AWS Organizations.
+  </Accordion>
+
+  <Accordion title="Does OpsBeacon store my AWS credentials?">
+    No. OpsBeacon never stores AWS access keys or long-lived credentials. All AWS access uses short-lived STS tokens obtained by assuming your cross-account IAM role at report time.
+  </Accordion>
+
+  <Accordion title="Can OpsBeacon see my application data or source code?">
+    No. OpsBeacon only reads from Cost Explorer, Trusted Advisor, GuardDuty, and Security Hub. It has no access to your EC2 instances, S3 bucket contents, databases, application logs, or source code.
+  </Accordion>
+
+  <Accordion title="How is my data used?">
+    OpsBeacon uses your data to generate reports and analysis for your workspace only. Your data is not used to train models, shared with other customers, or sold to third parties.
+  </Accordion>
+
+  <Accordion title="What if I want to cancel?">
+    You can cancel at any time. Remove the OpsBeacon Slack app, delete the IAM role, and contact support@opsbeacon.co to confirm cancellation and request data deletion.
+  </Accordion>
+</AccordionGroup>

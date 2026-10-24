@@ -1,0 +1,35 @@
+---
+title: Managing Workspaces and Settings
+description: Configure OpsBeacon for your workspace.
+---
+
+## Viewing your settings
+
+```
+@Beacon show me workspace settings
+@Beacon what AWS account is connected?
+@Beacon what channel do reports post to?
+```
+
+## Updating settings
+
+```
+@Beacon change the reporting channel to #cloud-costs
+@Beacon update the cost alert threshold to $20,000
+```
+
+## Workspace configuration options
+
+- Default reporting channel
+- Cost alert thresholds
+- Scheduled report times and channels
+- Timezone (for scheduled reports)
+- Loaded hourly rate (for remediation cost calculations)
+
+## Setting your loaded hourly rate
+
+OpsBeacon uses a default engineering hourly rate for remediation cost calculations. To use your actual rate:
+
+```
+@Beacon set engineering hourly rate to $150
+```

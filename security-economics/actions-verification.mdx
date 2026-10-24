@@ -1,0 +1,36 @@
+---
+title: Security Actions & Verification
+description: Track security fixes from assignment through to verified cost reduction.
+---
+
+## The full lifecycle
+
+OpsBeacon tracks security findings from discovery to verified resolution:
+
+1. **Detected** — finding appears in GuardDuty or Security Hub
+2. **Surfaced** — Beacon includes it in the Security Economics Report
+3. **Assigned** — you assign the finding to a team member
+4. **Resolved** — the fix is applied
+5. **Verified** — Beacon confirms the finding no longer appears in the next scan
+
+## Assigning a finding
+
+```
+@Beacon assign finding-01 to @alice
+@Beacon who owns finding-02?
+```
+
+## Marking a finding resolved
+
+```
+@Beacon mark finding-01 as resolved
+```
+
+Beacon will check for the finding in the next security scan. If it no longer appears, it's marked as verified and the monthly exposure is removed from your total.
+
+## Tracking savings
+
+```
+@Beacon how much have we saved from resolved security findings this quarter?
+@Beacon show me verified security remediations
+```

@@ -1,0 +1,28 @@
+---
+title: Known Limitations
+---
+
+## Cost data
+
+- **24-hour delay** — AWS Cost Explorer data is typically 24 hours behind real time
+- **Resource-level attribution** — Beacon identifies cost drivers at the service and usage-type level, not down to specific instance IDs (requires resource-level tagging)
+- **Tag coverage** — tag-based filtering requires tags to be activated in AWS Cost Explorer and applied to your resources
+
+## Security findings
+
+- **GuardDuty must be enabled** — if GuardDuty is not active, there are no findings to analyze
+- **Security Hub aggregation** — findings from third-party integrations only appear if those integrations are connected to Security Hub
+
+## AI economics
+
+- **AWS Bedrock only** (native) — non-AWS AI providers require cost tagging in AWS Cost Explorer to be tracked
+- **Usage-level data** — Beacon tracks spend but not the content of prompts or completions
+
+## Trusted Advisor
+
+- **Business+ support plan required** — check-level results are not accessible via API on Basic or Developer plans
+
+## General
+
+- **Single AWS account per workspace** (multi-account support in progress)
+- **Slack only** — Microsoft Teams integration is in development

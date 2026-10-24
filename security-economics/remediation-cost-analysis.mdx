@@ -1,0 +1,26 @@
+---
+title: Remediation Cost Analysis
+description: Know exactly what it costs in time and money to fix each security finding.
+---
+
+## What it shows
+
+For each security gap, OpsBeacon estimates:
+- **Remediation cost** — engineering time × loaded hourly rate
+- **Effort level** — Low (< 1 hour), Medium (1–4 hours), High (> 4 hours)
+- **Monthly savings** — the exposure cost that goes away once the finding is resolved
+- **Payback period** — how quickly the remediation pays for itself
+
+## How to use it
+
+```
+@Beacon what does it cost to fix my top 3 security findings?
+@Beacon show me all low-effort security fixes
+@Beacon what's the ROI of fixing finding-01?
+```
+
+## Prioritization formula
+
+Beacon sorts findings by: **monthly exposure ÷ remediation cost**. The higher the ratio, the better the return on fixing it first.
+
+A $300/month exposure that costs $50 to fix is a 6x return in month one. A $50/month exposure that costs $500 to fix takes 10 months to break even.

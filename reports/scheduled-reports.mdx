@@ -1,0 +1,34 @@
+---
+title: Scheduled Reports & Digests
+description: Configure Beacon to post reports to Slack automatically on a schedule.
+---
+
+## Setting up a scheduled report
+
+```
+@Beacon post the cost summary here every Monday at 9am
+@Beacon send me the security economics report every Friday
+@Beacon post the monthly cloud economics report on the 1st
+```
+
+## Available schedules
+
+- Daily (specify a time: "every day at 8am")
+- Weekly (specify a day and time: "every Monday at 9am")
+- Monthly (specify a day: "on the 1st of every month")
+
+## Managing scheduled reports
+
+```
+@Beacon what reports are scheduled?
+@Beacon cancel the weekly cost summary
+@Beacon change the cost summary to post on Tuesdays instead
+```
+
+## Report digests
+
+A digest combines multiple reports into one message — useful for a weekly all-hands channel or a Monday morning FinOps standup:
+
+```
+@Beacon post a weekly digest every Monday: cost summary, security score, and AI spend
+```
